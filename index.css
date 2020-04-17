@@ -1,0 +1,339 @@
+:root {
+  --background-color: #6e7760;
+  --container-color: #94a678;
+  --contour-color: #4d4a4b;
+  --red: #f0646b;
+  --blue: #68c5b5;
+  --white: #ffffff;
+  --yellow: #f5d384;
+}
+
+body {
+  background: var(--background-color);
+}
+
+.container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--container-color);
+  height: 550px;
+  width: 550px;
+  border-radius: 275px;
+}
+
+.show-content {
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+  width: 0px;
+  transform-origin: 275px 480px;
+  animation: anime-show-content 5s ease-in-out infinite;
+}
+
+@keyframes anime-show-content {
+  10%,
+  90% {
+    width: 550px;
+  }
+}
+
+.border {
+  border: 5px solid var(--contour-color);
+}
+
+.ground {
+  position: absolute;
+  border-radius: 220px;
+  left: 50%;
+  bottom: 0px;
+  transform: translateX(-50%);
+  width: 370px;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+}
+
+.ground::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  border-radius: 220px;
+  left: -50px;
+  border-bottom: 5px solid var(--contour-color);
+}
+
+.ground::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  border-radius: 220px;
+  right: -40px;
+  border-bottom: 5px solid var(--contour-color);
+}
+
+.base {
+  position: absolute;
+  background: var(--red);
+  left: 50%;
+  bottom: -40px;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  height: 35px;
+  width: 140px;
+  z-index: 100;
+  animation: anime-base 5s ease-in-out infinite;
+}
+
+@keyframes anime-base {
+  10%,
+  20% {
+    bottom: 220px;
+    transform: rotate(360deg);
+  }
+
+  20%,
+  85% {
+    bottom: 0px;
+    transform: rotate(0deg);
+    left: 38%;
+  }
+
+  90%,
+  100% {
+    bottom: -40px;
+  }
+}
+
+.button {
+  position: absolute;
+  left: 50%;
+  bottom: -30px;
+  width: 40px;
+  height: 20px;
+  border-radius: 10px;
+  background: var(--blue);
+  z-index: 50;
+  animation: anime-button 5s ease-in-out infinite;
+}
+
+@keyframes anime-button {
+  0%,
+  20% {
+    bottom: -140px;
+  }
+
+  20%,
+  30% {
+    bottom: 40px;
+  }
+
+  30%,
+  85% {
+    bottom: 30px;
+  }
+}
+
+.curve {
+  position: absolute;
+  background: var(--white);
+  height: 100px;
+  width: 8px;
+  z-index: 5;
+}
+
+.curve::before {
+  content: "";
+  position: absolute;
+  height: 35px;
+  width: 35px;
+  border-radius: 40px;
+  border: 5px solid var(--contour-color);
+  background: var(--yellow);
+  left: -17.5px;
+  top: -17.5px;
+  z-index: 70;
+}
+
+.position-curve-first {
+  left: 45%;
+  transform-origin: 4px 100px;
+  animation: anime-curve-first 5s ease-in-out infinite;
+}
+
+@keyframes anime-curve-first {
+  0%,
+  20% {
+    bottom: -140px;
+    transform: rotate(180deg);
+  }
+
+  30%,
+  80% {
+    bottom: 20px;
+    transform: rotate(-30deg);
+  }
+
+  90%,
+  100% {
+    bottom: -140px;
+    transform: rotate(180deg);
+  }
+}
+
+.position-curve-second {
+  transform: rotate(30deg);
+  transform-origin: center bottom;
+  animation: anime-curve-second 5s ease-in-out infinite;
+}
+
+@keyframes anime-curve-second {
+  0%,
+  20% {
+    bottom: -140px;
+    transform: rotate(180deg);
+  }
+
+  30%,
+  40% {
+    left: 35%;
+    bottom: 120px;
+    transform: rotate(-50deg);
+  }
+
+  41%,
+  55% {
+    left: 35%;
+    bottom: 120px;
+    transform: rotate(-70deg);
+  }
+
+  60%,
+  85% {
+    left: 38%;
+    bottom: 120px;
+    transform: rotate(30deg);
+  }
+
+  90%,
+  100% {
+    bottom: -140px;
+    transform: rotate(180deg);
+  }
+}
+
+.catch-light {
+  position: absolute;
+  height: 50px;
+  width: 60px;
+  left: 50%;
+  transform: translateX(-45%);
+  background: var(--red);
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-right: none;
+  z-index: 50;
+  animation: animate-catch 5s ease-in-out infinite;
+}
+
+@keyframes animate-catch {
+  0%,
+  55% {
+    transform: scale(0);
+    visibility: hidden;
+  }
+
+  56% {
+    left: 25%;
+  }
+
+  60%,
+  85% {
+    bottom: 175px;
+    left: 48%;
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+.catch-light::before {
+  content: "";
+  position: absolute;
+  height: 90px;
+  width: 50px;
+  background: var(--red);
+  border-top-left-radius: 70px;
+  border-bottom-left-radius: 70px;
+  top: -25px;
+  left: 40px;
+  border-left: none;
+  border: 5px solid var(--contour-color);
+}
+
+.catch-light-white {
+  position: absolute;
+  background: var(--white);
+  height: 110px;
+  width: 15px;
+  border-radius: 20px;
+  left: 66%;
+  bottom: 145px;
+  z-index: 50;
+  transform: scale(0);
+  animation: animate-catch-white 5s ease-in-out infinite;
+}
+
+@keyframes animate-catch-white {
+  0%,
+  60% {
+    transform: scale(0);
+  }
+
+  65%,
+  70% {
+    transform: scale(1.5);
+  }
+
+  75%,
+  85% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+.light {
+  position: absolute;
+  background: var(--yellow);
+  height: 70px;
+  width: 70px;
+  border-radius: 40px;
+  left: 62%;
+  bottom: 165px;
+  transform: scale(0);
+  animation: animate-light 5s ease-in-out infinite;
+}
+
+@keyframes animate-light {
+  0%,
+  70% {
+    transform: scale(0);
+  }
+
+  75%,
+  85% {
+    transform: scale(1);
+  }
+}
+
+.light-up {
+  position: relative;
+  bottom: -450px;
+  left: -30px;
+}
